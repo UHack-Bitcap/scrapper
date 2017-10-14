@@ -21,7 +21,9 @@ findHeadline = data.find_all('h1')
 
 date = soup.findAll("div", { "class" : "story-timedate" })[0]
 # print date.text
-
+Date = date.text.encode('utf-8').split(' ')
+year = str(Date[3])
+finalDate = Date[0] + ' ' + Date[1] + ' ' + Date[2] + ' ' + year[:4]
 
 
 
@@ -39,7 +41,7 @@ for i in findContent:
 finalJson = { 
 				"headline":findHeadline[0].text.encode('utf-8'), 
 				"content":content.encode('utf-8'), 
-				"date":date.text.encode('utf-8')
+				"date":finalDate
 			}
 
 print finalJson
