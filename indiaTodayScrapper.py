@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 ########importing Libraries
 import requests
 from bs4 import BeautifulSoup as bs
@@ -34,9 +37,9 @@ for i in findContent:
 ######## returning the final json
 
 finalJson = { 
-				"headline":findHeadline[0].text, 
-				"content":content, 
-				"date":date.text
+				"headline":findHeadline[0].text.encode('utf-8'), 
+				"content":content.encode('utf-8'), 
+				"date":date.text.encode('utf-8')
 			}
 
 print finalJson
