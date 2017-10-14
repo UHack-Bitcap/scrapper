@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 
 ######## url of the website
-url="http://indiatoday.intoday.in/story/some-on-twitter-ask-who-killed-aarushi/1/1067739.html"
+url="http://indiatoday.intoday.in/story/pranab-mukherjee-upa-government-congress-sonia-gandhi-manmohan/1/1066926.html"
 r=requests.get(url)
 print r
 soup = bs(r.text,"html.parser")
@@ -40,3 +40,13 @@ finalJson = {
 			}
 
 print finalJson
+
+a = findHeadline[0].text
+
+f= open(a+".json","w+")
+f.write(str(finalJson))
+f.close() 
+
+
+
+
